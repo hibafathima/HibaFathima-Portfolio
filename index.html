@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hiba Fathima – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: confident, clear, senior – a delivery leader's annual report
+   IDEA: the portfolio behaves like an annual report cover and its results pages
+   PICTURE: a giant vermilion "results" mass bleeding off the hero's edges, carrying the headline numbers
+   COLOUR and TYPE: white, black, vermilion #ff4a1c; Sofia Sans Condensed 800 + Instrument Sans
+   LAYOUT: hero split by the solid mass; results band; case-study grid; timeline; skills; contact band */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#120d0b);--ink:light-dark(#111111,#f4efec);--mute:light-dark(#5b5552,#b4aaa5);--line:light-dark(#e6e1de,#2c2421);--red:light-dark(#ff4a1c,#ff5a2e);--card:light-dark(#faf8f7,#1b1411);--onred:#fff}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Instrument Sans",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Sofia Sans Condensed","Arial Narrow",sans-serif;font-weight:800;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.4vw,48px);margin-bottom:12px}
+h3{font-size:24px;font-weight:600}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(40px,6vw,88px) max(5vw,16px)}
+.lead{color:var(--mute);max-width:62ch;margin:0 0 32px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding:12px max(5vw,16px)}
+nav b{font-family:"Sofia Sans Condensed",sans-serif;font-size:22px;margin-right:auto}
+nav a{text-decoration:none;font-size:15px;padding:10px 0;color:var(--mute)}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);min-height:min(640px,86vh);overflow:hidden}
+.hero .copy{padding:clamp(40px,6vw,96px) max(5vw,16px);display:flex;flex-direction:column;justify-content:center;gap:20px}
+.hero h1{font-size:clamp(52px,8vw,104px)}
+.hero p{font-size:18px;max-width:46ch;margin:0;color:var(--mute)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.mass{position:relative;background:var(--red);color:var(--onred);clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);padding:clamp(40px,5vw,80px) max(5vw,16px) clamp(40px,5vw,80px) clamp(70px,9vw,140px);display:grid;align-content:center;gap:clamp(18px,3vw,34px)}
+.mass svg{position:absolute;right:-6%;bottom:-8%;width:80%;opacity:.16;pointer-events:none}
+.stat{display:grid;gap:2px}
+.stat strong{font-family:"Sofia Sans Condensed",sans-serif;font-weight:800;font-size:clamp(48px,6.4vw,88px);line-height:.95}
+.stat span{font-size:16px;max-width:30ch}
+.strip{background:var(--ink);color:var(--bg)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;padding:18px max(5vw,16px);font-weight:500}
+.strip span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:10px;vertical-align:middle}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:20px}
+.case{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.case .tag{font-size:14px;color:var(--mute)}
+.case .num{font-family:"Sofia Sans Condensed",sans-serif;font-weight:800;font-size:44px;color:var(--red);line-height:1}
+.case p{margin:0}
+.case ul{margin:0;padding-left:18px;color:var(--mute);font-size:15px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 15px "Instrument Sans",sans-serif;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.spec{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:0;border-top:2px solid var(--ink)}
+.spec div{padding:24px 24px 26px 0;border-bottom:1px solid var(--line)}
+.spec h3{font-size:30px;font-weight:800;margin-bottom:8px}
+.spec h3::before{content:"";display:inline-block;width:12px;height:12px;background:var(--red);margin-right:12px;vertical-align:middle}
+.spec p{margin:0;color:var(--mute);max-width:44ch}
+.tl{list-style:none;margin:0;padding:0;border-left:3px solid var(--red)}
+.tl li{position:relative;padding:0 0 36px 28px}
+.tl li::before{content:"";position:absolute;left:-11px;top:6px;width:19px;height:19px;border-radius:50%;background:var(--bg);border:4px solid var(--red)}
+.tl .when{font-size:15px;color:var(--mute);white-space:nowrap}
+.tl p{margin:6px 0 0;max-width:70ch}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.contact{background:var(--red);color:var(--onred)}
+.contact h2{font-size:clamp(40px,6vw,72px)}
+.contact .lead{color:var(--onred);opacity:.9}
+.contact .btn{border-color:var(--onred);color:var(--onred)}
+.contact .btn.solid{background:var(--onred);color:#111}
+.copied{min-height:24px;margin-top:12px;font-weight:600}
+footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute)}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr);min-height:0}.mass{clip-path:polygon(0 6%,100% 0,100% 100%,0 100%);padding:56px max(5vw,16px) 48px}.split{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.hero h1{font-size:56px}nav .links{display:flex;flex-wrap:wrap;gap:0 18px;width:100%}}
+@media(prefers-reduced-motion:no-preference){.stat{animation:up .7s both}.stat:nth-child(3){animation-delay:.12s}.stat:nth-child(4){animation-delay:.24s}@keyframes up{from{opacity:0;transform:translateY(18px)}}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Hiba Fathima</b><div class="links"><a href="#expertise">Expertise</a> <a href="#work">Work</a> <a href="#experience">Experience</a> <a href="#skills">Skills</a> <a href="#contact">Contact</a></div></div></nav>
+
+<header class="hero">
+  <div class="copy">
+    <h1>Hiba Fathima</h1>
+    <p>Technical Project &amp; Programme Manager in London. I lead complex data centre, cloud, AI infrastructure, cybersecurity and regulatory change (CBEST, DORA) for global financial services, and make it land: on plan, controlled and adopted.</p>
+    <div class="btns"><a class="btn solid" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+  <div class="mass" aria-label="Headline results">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="10"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="58"/><circle cx="100" cy="100" r="28"/></g></svg>
+    <div class="stat"><strong>6+ yrs</strong><span>delivering technology change in financial services and consultancy</span></div>
+    <div class="stat"><strong>10+</strong><span>concurrent programmes run with 40+ engineers, vendors and partners globally</span></div>
+    <div class="stat"><strong>Zero</strong><span>unplanned production outages across a 30+ application global migration</span></div>
+  </div>
+</header>
+
+<div class="strip"><div class="wrap"><span>Nomura</span><span>Infosys</span><span>DXC Technology</span><span>Clients incl. E.ON</span></div></div>
+
+<section class="band" id="expertise"><div class="wrap">
+  <h2>Where I specialise</h2>
+  <p class="lead">Six areas I've delivered in, inside a regulated global investment bank.</p>
+  <div class="spec" id="specList"></div>
+</div></section>
+
+<section class="band" id="work"><div class="wrap">
+  <h2>Selected work</h2>
+  <p class="lead">Programmes I've led or delivered, with the outcomes they produced.</p>
+  <div class="filters" role="group" aria-label="Filter work">
+    <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="dc">Data centre &amp; AI</button><button aria-pressed="false" data-f="cloud">Cloud &amp; infrastructure</button><button aria-pressed="false" data-f="sec">Cyber, CBEST &amp; DORA</button><button aria-pressed="false" data-f="ops">Observability &amp; operations</button>
+  </div>
+  <div class="grid" id="cases"></div>
+</div></section>
+
+<section class="band" id="experience" style="background:var(--card)"><div class="wrap split">
+  <div><h2>Experience</h2><p class="lead">From PMO analyst to leading a global infrastructure portfolio.</p></div>
+  <ol class="tl">
+    <li><h3>Infrastructure Project Manager, Nomura</h3><div class="when">London · Mar 2023 – present</div><p>Run a portfolio of 10+ infrastructure, cloud, cybersecurity and observability programmes. Own roadmaps, critical path, RAID and executive reporting, and chair steering updates with senior stakeholders.</p></li>
+    <li><h3>Technical Project Manager, Infosys</h3><div class="when">Bengaluru · Mar 2021 – Mar 2022</div><p>Managed 4 client cloud, security and data migration projects for clients including E.ON, leading a 12-person team. Delivered E.ON onboarding two weeks early with formal client recognition; 95%+ on-time milestones.</p></li>
+    <li><h3>PMO Analyst, DXC Technology</h3><div class="when">Bengaluru · Aug 2019 – Mar 2021</div><p>Supported 6+ concurrent projects and 20+ production releases. Applied Lean Six Sigma and Kaizen, cutting processing time by ~15% and raising throughput by ~20%.</p></li>
+  </ol>
+</div></section>
+
+<section class="band" id="skills"><div class="wrap">
+  <h2>What I bring</h2>
+  <p class="lead">Delivery discipline, technical depth and the stakeholder skills to move large groups of people.</p>
+  <div class="skills" id="skillsList"></div>
+  <div class="split" style="margin-top:48px">
+    <div><h3>Education</h3><p>BE, Electronics &amp; Instrumentation – GSSSIETW, India</p></div>
+    <div><h3>Certifications in progress</h3><p>PRINCE2 7 Foundation &amp; Practitioner · ITIL 4 Foundation · PMP</p></div>
+  </div>
+</div></section>
+
+<section class="band contact" id="contact"><div class="wrap">
+  <h2>Let's talk</h2>
+  <p class="lead">Open to Technical Programme Manager, Delivery Manager and Senior Project Manager roles in London or remote.</p>
+  <div class="btns">
+    <a class="btn solid" href="mailto:hiba97fathima@gmail.com">hiba97fathima@gmail.com</a>
+    <button class="btn" id="copy" type="button" style="background:transparent;font:600 16px 'Instrument Sans',sans-serif;cursor:pointer">Copy email</button>
+  </div>
+  <div class="copied" id="msg" aria-live="polite"></div>
+  <p>London, UK · LinkedIn: Hiba Fathima</p>
+</div></section>
+
+<footer><div class="wrap">© 2026 Hiba Fathima</div></footer>
+
+<script>
+{
+const specs=[
+ ['Financial services','6+ years delivering technology change in banking and financial services, most recently at a global investment bank.'],
+ ['Data centre','Data centre exit and migration, hardware refresh and rack-and-stack, colocation and new data centre builds, and resilience and DR.'],
+ ['AI infrastructure','GPU infrastructure and AI/ML platforms, large-scale inference and capacity planning, plus generative AI to speed up plans, RAID logs and executive reporting.'],
+ ['CBEST','Project Manager on the CBEST Remediation Programme (2023–2026): the Bank of England, PRA and FCA intelligence-led penetration test of Important Business Services, assessing the ability to prevent, detect and respond to an advanced cyber attack.'],
+ ['DORA','Coordinate infrastructure and technology risk remediation for the EU Digital Operational Resilience Act (DORA), working with business and specialist teams on priorities, actions and delivery.'],
+ ['Cybersecurity','Identity and access management, vulnerability remediation, threat-led testing and cyber control improvement, with delivery progress tied to risk reduction and control maturity.']
+];
+const cases=[
+ {f:'sec',tag:'Regulatory · CBEST',t:'CBEST Remediation Programme',n:'20 themes',d:'Project Manager on the multi-year CBEST Remediation Programme (Apr 2023 – Jan 2026) for wholesale banking. CBEST is the Bank of England, PRA and FCA intelligence-led penetration test of a firm’s Important Business Services.',b:['Four test scenarios imitating real threat actors, run by CREST-accredited testers against prevent, detect and respond capabilities','Remediation structured around the 20 themes in the testers’ reports, each with its own milestones','Minimum viable plan published to the regulators in April 2023, the basis of the delivery programme','Delivery shared between infrastructure (GIS) and IT Security, with a control group of IT Security, production services and senior IT and business leaders','Initial focus on EMEA, with regulator expectation to extend globally; progress measured by evidence and re-testing']},
+ {f:'sec',tag:'Regulatory · DORA',t:'EU DORA operational resilience',n:'4 pillars',d:'Coordinating infrastructure and technology risk remediation for the EU Digital Operational Resilience Act.',b:['ICT risk management, incident reporting, resilience testing and ICT third-party risk','Critical and important function (CIF) and ICT asset mapping','Register of information and third-party contract uplift']},
+ {f:'sec',tag:'Security operations',t:'Incident response improvement',n:'Audit closed',d:'Delivered improvements with Security Operations and assurance stakeholders after an independent assessment.',b:['Evidenced control design and operational effectiveness','Supported formal Internal Audit closure and regulatory reporting']},
+ {f:'sec',tag:'Cybersecurity',t:'CyberArk privileged access',n:'500+',d:'Onboarded privileged accounts with risk and compliance partners.',b:['Asset gap kept below 5%','Alongside LSASS hardening']},
+ {f:'sec',tag:'Cybersecurity',t:'Security capability uplift',n:'5 areas',d:'Delivered projects across identity and access management, vulnerability remediation, cloud and infrastructure, mobility and threat-led testing.',b:['Cyber control improvement','Delivery progress linked to risk reduction and control maturity']},
+ {f:'sec',tag:'Remediation',t:'OpenShare remediation',n:'~40%',d:'Reduced open file shares in four months with month-on-month governance reporting.',b:['MoM reporting deck to senior management']},
+ {f:'dc',tag:'Data centre',t:'Data centre consolidation',n:'8 → 4',d:'Programme to consolidate eight data centres into four, reducing long-term operating cost and complexity.',b:['Phased relocations across UK and US sites','Data centre exit, hardware refresh and resilience and DR']},
+ {f:'dc',tag:'Data centre',t:'Global storage array transformation',n:'Global',d:'Global refresh of end-of-life storage hardware (block, file, object and SAN switching).',b:['Extends support life and aligns with vendor requirements','Smaller, more efficient footprint with improved data redundancy']},
+ {f:'dc',tag:'AI',t:'Generative AI programme',n:'~30%',d:'Firm-wide GenAI programme aiming to replace around 30% of business working time with generative AI over three years.',b:['Enterprise training and AI enablement','Data foundation: Snowflake and Salesforce data migration','Microsoft Copilot, AI agents and GenAI apps']},
+ {f:'dc',tag:'AI infrastructure',t:'GPU & AI/ML platforms',n:'GPU',d:'GPU infrastructure and AI/ML platform work, including large-scale inference.',b:['Capacity planning with SRE and engineering','Generative AI for portfolio reporting, validated before release']},
+ {f:'ops',tag:'Observability',t:'Observability modernisation',n:'5 → 1',d:'Consolidating five overlapping monitoring and logging tools into one standard observability platform (TOM) under a Group-wide control framework.',b:['Monitoring maturity assessment framework with automatic scoring','Formal, centralised event management control process']},
+ {f:'ops',tag:'Observability',t:'Sentinel to TOM adoption',n:'5 domains',d:'Decommissioning Sentinel and moving private cloud, database, middleware, web and core tools onto TOM.',b:['TOM agent production rollout on Linux and Windows','Success measured by removal of all Sentinel dependencies']},
+ {f:'ops',tag:'Observability',t:'Splunk divestment',n:'Divest',d:'Created and lead the Splunk divest project: migrating teams to TOM for monitoring and to OpenSearch for high-volume search.',b:['Contract not renewed, removing annual licence cost','Upgrade track for teams unable to migrate immediately']},
+ {f:'ops',tag:'Observability',t:'RiverMuse alert reduction',n:'~30%',d:'Filtering noise at source and automating event collection so only meaningful signals reach the operations console.',b:['Faster incident detection, less cognitive overload for operators']},
+ {f:'cloud',tag:'Cloud',t:'VMware-to-OpenShift migration',n:'30+ apps',d:'Owned the roadmap, critical path and sequencing for a global platform migration.',b:['Aligned platform, application and risk teams','Phased cutovers, zero unplanned production outages']},
+ {f:'cloud',tag:'Network',t:'Strategic DDI platform (BlueCat)',n:'38 servers',d:'Replacing an unsupported DNS, DHCP and IPAM platform with BlueCat across EMEA, US, Asia ex-Japan and Japan.',b:['Decommissioning 38 obsolete RHEL6 servers','Automation to cut manual configuration and risk']},
+ {f:'cloud',tag:'Middleware',t:'TIBCO exit',n:'4 → 2',d:'Decommissioning unsupported TIBCO middleware and moving applications to strategic messaging platforms.',b:['Exit plans for all critical business services and functions','Removes unsecured messaging and reduces vendor dependency']},
+ {f:'cloud',tag:'Platform',t:'API gateway & lifecycle',n:'Cloud native',d:'Cloud-native API gateway for internal APIs and microservices.',b:['Dynamic routing, canary and blue-green releases, rate limiting','Built-in metrics, alerting and service governance']},
+ {f:'ops',tag:'Client-facing',t:'Legacy file transfer to Axway MFT',n:'200+ flows',d:'Migrating client-facing (S)FTP flows across 10+ business units ahead of an April 2027 deadline.',b:['Designed a per-business-unit RAG scorecard','Drives accountability without direct authority']},
+ {f:'ops',tag:'Workplace',t:'Windows 11 & Microsoft 365',n:'All devices',d:'Windows 11 rollout to all in-scope production devices ahead of Windows 10 end of life, and Microsoft 365 adoption.',b:['M365 tracked against a 90% adoption target per business unit']},
+ {f:'ops',tag:'Portfolio',t:'Portfolio health dashboard',n:'8 domains',d:'One RAG view of milestones, dependencies, risks and decisions for senior management.',b:['Executive summaries with clear asks']},
+ {f:'cloud',tag:'Infosys · E.ON',t:'Cloud & data migration',n:'50+ servers',d:'Led a 12-person team across 4 client programmes.',b:['E.ON onboarding two weeks early','95%+ on-time milestone delivery']}
+];
+const skills=[
+ ['Delivery',['Roadmaps & critical path','RAID & risk','Agile','Waterfall','Hybrid','Benefits realisation','Incident & RCA']],
+ ['Leadership',['Executive reporting','Steering committees','Influencing without authority','Vendor management','Cross-functional teams']],
+ ['Technology & regulation',['Data centre migration','GPU & AI/ML platforms','CBEST','DORA','Identity & access management','Vulnerability remediation','Threat-led testing','Cyber control improvement','Cloud & OpenShift','VMware','Axway MFT','CyberArk','Splunk','ExtraHop','Microsoft 365']],
+ ['AI',['Generative AI','Microsoft Copilot','ChatGPT','Claude','AI/ML platforms','GPU infrastructure','Large-scale inference','AI-assisted reporting & RAID','Responsible AI use']],
+ ['Tools',['Jira','Confluence','Power BI','Excel','PowerPoint','Miro','Microsoft Copilot']]
+];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const box=document.getElementById('cases');
+const render=f=>{box.innerHTML=cases.filter(c=>f==='all'||c.f===f).map(c=>`<article class="case"><div class="tag">${esc(c.tag)}</div><div class="num">${esc(c.n)}</div><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><ul>${c.b.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')};
+render('all');
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render(b.dataset.f)}));
+document.getElementById('specList').innerHTML=specs.map(([h,p])=>`<div><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('');
+document.getElementById('skillsList').innerHTML=skills.map(([h,l])=>`<div><h3>${esc(h)}</h3><div class="chips">${l.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>`).join('');
+const msg=document.getElementById('msg');
+document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('hiba97fathima@gmail.com');msg.textContent='Email copied'}catch(e){msg.textContent='hiba97fathima@gmail.com'}});
+}
+</script>
+</body>
+</html>
